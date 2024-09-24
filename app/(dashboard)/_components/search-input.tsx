@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import qs from 'query-string';
 import { Search } from 'lucide-react';
@@ -17,20 +17,24 @@ export const SearchInput = () => {
     };
 
     useEffect(() => {
-        const url = qs.stringifyUrl({
-            url: "/",
-            query: {
-                search: debouncedValue,
-            }
-        }, { skipEmptyString: true, skipNull: true });
+        const url = qs.stringifyUrl(
+            {
+                url: '/',
+                query: {
+                    search: debouncedValue,
+                },
+            },
+            { skipEmptyString: true, skipNull: true }
+        );
 
-        router.push(url)
+        router.push(url);
     }, [debouncedValue, router]);
 
     return (
         <div className='w-full relative'>
             <Search className='absolute top-1/2 left-3 transform -translate-y-1/2 text-muted-foreground h-4 w-4' />
-            <Input className='w-full max-w-[520px] pl-9'
+            <Input
+                className='w-full max-w-[520px] pl-9'
                 placeholder='Search aero'
                 onChange={handleChange}
                 value={value}
