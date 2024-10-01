@@ -5,13 +5,20 @@ import { createClient } from '@liveblocks/client';
 import { createRoomContext } from '@liveblocks/react';
 
 const client = createClient({
-    publicApiKey:
-        'pk_dev_uktQ-Ga3dyc6i5FzHsEfhixyUpqmdS2C88Cuvq3DG6EM4FLzmpX1cLxMToyqsQps',
+    // publicApiKey:
+    //     'pk_dev_uktQ-Ga3dyc6i5FzHsEfhixyUpqmdS2C88Cuvq3DG6EM4FLzmpX1cLxMToyqsQps',
+    authEndpoint: '/api/liveblocks-auth',
 });
 
 type Presence = {};
 type Storage = {};
-type UserMeta = {};
+type UserMeta = {
+    id?: string;
+    info?: {
+        name?: string;
+        picture?: string;
+    };
+};
 type RoomEvent = {};
 type ThreadMetadata = {};
 
@@ -19,6 +26,7 @@ export const {
     suspense: {
         RoomProvider,
         useMyPresence,
+        useSelf,
 
         // Other suspense hooks
         // ...
