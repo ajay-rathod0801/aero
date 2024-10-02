@@ -27,6 +27,7 @@ export const {
         RoomProvider,
         useMyPresence,
         useSelf,
+        useOthers,
 
         // Other suspense hooks
         // ...
