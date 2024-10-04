@@ -7,10 +7,16 @@ import { createRoomContext } from '@liveblocks/react';
 const client = createClient({
     // publicApiKey:
     //     'pk_dev_uktQ-Ga3dyc6i5FzHsEfhixyUpqmdS2C88Cuvq3DG6EM4FLzmpX1cLxMToyqsQps',
+    throttle: 16,
     authEndpoint: '/api/liveblocks-auth',
 });
 
-type Presence = {};
+type Presence = {
+    cursor: {
+        x: number;
+        y: number;
+    } | null,
+};
 type Storage = {};
 type UserMeta = {
     id?: string;
@@ -28,6 +34,16 @@ export const {
         useMyPresence,
         useSelf,
         useOthers,
+        useHistory,
+        useUndo,
+        useRedo,
+        useCanUndo,
+        useCanRedo,
+        useStorage,
+        useOthersConnectionIds,
+        useOther,
+        useMutation,
+
 
         // Other suspense hooks
         // ...
