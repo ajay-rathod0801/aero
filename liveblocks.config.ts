@@ -1,8 +1,9 @@
 // Define Liveblocks types for your application
 // https://liveblocks.io/docs/api-reference/liveblocks-react#Typing-your-data
 
-import { createClient } from '@liveblocks/client';
+import { createClient, LiveList, LiveMap, LiveObject } from '@liveblocks/client';
 import { createRoomContext } from '@liveblocks/react';
+import { Layer, Color } from '@/types/canvas';
 
 const client = createClient({
     // publicApiKey:
@@ -16,8 +17,14 @@ type Presence = {
         x: number;
         y: number;
     } | null,
+    selection: string[];
 };
-type Storage = {};
+
+type Storage = {
+    layers: LiveMap<string, LiveObject<Layer>>;
+    layerIds: LiveList<string>; 
+};
+
 type UserMeta = {
     id?: string;
     info?: {
