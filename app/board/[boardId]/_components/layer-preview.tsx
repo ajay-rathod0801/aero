@@ -7,7 +7,7 @@ import { Rectangle } from "./rectangle";
 
 interface LayerPreviewProps {
   id: string;
-  onLayerPointerDown: () => void; // todo: add fixed type
+  onLayerPointerDown: (e: React.PointerEvent, layerId: string) => void;
   selectionColor?: string;
 }
 

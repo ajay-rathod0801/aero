@@ -41,6 +41,7 @@ export const {
         useMyPresence,
         useSelf,
         useOthers,
+        useOthersMapped,
         useHistory,
         useUndo,
         useRedo,

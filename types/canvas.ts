@@ -80,11 +80,11 @@ export type XYWH = {
     height: number;
 };
 
-export type Side = {
-    Top: 1;
-    Bottom: 2;
-    Left: 4;
-    Right: 8;
+export enum Side {
+    Top = 1,
+    Bottom = 2,
+    Left = 4,
+    Right = 8,
 };
 
 export type CanvasState =
@@ -98,7 +98,7 @@ export type CanvasState =
     }
     | {
         mode: CanvasMode.Translating;
-        origin: Point;
+        current: Point;
     }
     | {
         mode: CanvasMode.Inserting;
