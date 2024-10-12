@@ -1,4 +1,4 @@
-import { Hint } from "@/app/(dashboard)/_components/hint";
+import { Hint } from "@/components/hint";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface UserAvatarProps {
