@@ -1,13 +1,16 @@
 // Define Liveblocks types for your application
 // https://liveblocks.io/docs/api-reference/liveblocks-react#Typing-your-data
 
-import { createClient, LiveList, LiveMap, LiveObject } from '@liveblocks/client';
+import {
+    createClient,
+    LiveList,
+    LiveMap,
+    LiveObject,
+} from '@liveblocks/client';
 import { createRoomContext } from '@liveblocks/react';
 import { Layer, Color } from '@/types/canvas';
 
 const client = createClient({
-    // publicApiKey:
-    //     'pk_dev_uktQ-Ga3dyc6i5FzHsEfhixyUpqmdS2C88Cuvq3DG6EM4FLzmpX1cLxMToyqsQps',
     throttle: 16,
     authEndpoint: '/api/liveblocks-auth',
 });
@@ -16,13 +19,16 @@ type Presence = {
     cursor: {
         x: number;
         y: number;
-    } | null,
+    } | null;
     selection: string[];
+
+    pencilDraft: [x: number, y: number, pressure: number][] | null;
+    penColor: Color | null;
 };
 
 type Storage = {
     layers: LiveMap<string, LiveObject<Layer>>;
-    layerIds: LiveList<string>; 
+    layerIds: LiveList<string>;
 };
 
 type UserMeta = {
@@ -51,7 +57,6 @@ export const {
         useOthersConnectionIds,
         useOther,
         useMutation,
-
 
         // Other suspense hooks
         // ...
